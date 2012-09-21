@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Brew Clock</string>
+    <string name="lbl_brew">Brews: </string>
+    <string name="lbl_none">None</string>
+    <string name="lbl_minus">-</string>
+    <string name="lbl_starttime">0:00</string>
+    <string name="lbl_plus">+</string>
+    <string name="lbl_start">Start</string>
+    <string name="lbl_stop">Stop</string>
+    <string name="lbl_more">More</string>
+    <string name="lbl_brew_up">Brew Up!!</string>
+</resources>
