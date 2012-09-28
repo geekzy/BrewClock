@@ -24,6 +24,16 @@
 			android:textSize="20dip" />
 	</LinearLayout>
 	
+	<LinearLayout 
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content" >
+	    <Spinner 
+	        android:id="@+id/tea_spinner"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content" />
+	</LinearLayout>
+	
 	<LinearLayout
 		android:orientation="horizontal"
 		android:layout_width="fill_parent"

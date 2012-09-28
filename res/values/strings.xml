@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Brew Clock</string>
+    <!-- UI Lables - MainActivities-->    
+    <string name="title_brew">Brew Clock</string>
     <string name="lbl_brew">Brews: </string>
     <string name="lbl_none">None</string>
     <string name="lbl_minus">-</string>
@@ -9,4 +10,21 @@
     <string name="lbl_stop">Stop</string>
     <string name="lbl_more">More</string>
     <string name="lbl_brew_up">Brew Up!!</string>
+    
+    <!-- UI Labels - AddTeaActivities -->
+    <string name="title_add_tea">Add Tea</string>
+    <string name="lbl_tea_name">Tea Name</string>
+    <string name="lbl_brew_time">Brew Time</string>
+    <string name="default_brew_time">3m</string>
+    
+    <!-- Option menus -->
+    <string name="opt_add_tea">Add Tea</string>    
+    <string name="opt_remove_tea">Remove Tea</string>
+    <string name="opt_save_tea">Save</string>
+    
+    <!-- Messages -->
+    <string name="err_tea_title">Tea could not be saved</string>
+    <string name="err_tea_no_name">Enter a name for your tea.</string>
+    <string name="suc_save_tea">%s tea has been saved.</string>
+    <string name="suc_remove_tea">%s tea has been removed.</string>
 </resources>
