@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.widget.CursorAdapter;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,12 +17,13 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener, OnItemSelectedListener {
+	private static final int INITIAL_PROFILE_POS = 0;
+
 	/** Properties **/
 	protected Button btnPlusTime;
 	protected Button btnMinusTime;
@@ -38,7 +41,6 @@ public class MainActivity extends Activity implements OnClickListener, OnItemSel
 	protected SimpleCursorAdapter teaCursorAdapter;
 
 	@Override
-	@SuppressWarnings("deprecation")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
@@ -74,14 +76,23 @@ public class MainActivity extends Activity implements OnClickListener, OnItemSel
 				android.R.layout.simple_spinner_item,
 				cursor,
 				new String[] { TeaData.NAME },
-				new int[] { android.R.id.text1 }
-				);
+				new int[] { android.R.id.text1 },
+				CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
 		spnTea.setAdapter(teaCursorAdapter);
 		teaCursorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 		// Set the initial brew values
 		setBrewCount(0);
 		setBrewTime(3);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		// update spinner
+		teaCursorAdapter.changeCursor(teaData.all(this));
+		teaCursorAdapter.notifyDataSetChanged();
+		spnTea.setSelection(INITIAL_PROFILE_POS);
 	}
 
 	/**

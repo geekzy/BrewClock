@@ -76,7 +76,6 @@ public class AddTeaActivity extends Activity implements OnSeekBarChangeListener 
 		// the tea is valid, so connect to thea db and inssert the tea
 		TeaData teaData = new TeaData(this);
 		teaData.insert(teaName, brewTime);
-		teaData.close();
 
 		// hide soft keyboard
 		imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
