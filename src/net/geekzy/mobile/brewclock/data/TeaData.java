@@ -31,14 +31,13 @@ public class TeaData extends SQLiteOpenHelper {
 		db.insertOrThrow(TABLE_NAME, null, values);
 	}
 
-	//@SuppressWarnings("deprecation")
 	public Cursor all(Activity activity) {
-		String[] from = {_ID, NAME, BREW_TIME};
+		String[] from = { _ID, NAME, BREW_TIME };
 		String order = _ID;
 
 		SQLiteDatabase db = getReadableDatabase();
-		Cursor cursor = db.query(TABLE_NAME, from, null, null, null, null, order);
-		//activity.startManagingCursor(cursor);
+		Cursor cursor = db.query(TABLE_NAME, from, null, null, null, null,
+				order);
 
 		return cursor;
 	}
@@ -50,7 +49,7 @@ public class TeaData extends SQLiteOpenHelper {
 
 	public boolean delete(int id) {
 		SQLiteDatabase db = getWritableDatabase();
-		db.delete(TABLE_NAME, _ID+"=?", new String[]{String.valueOf(id)});
+		db.delete(TABLE_NAME, _ID + "=?", new String[] { String.valueOf(id) });
 		return true;
 	}
 

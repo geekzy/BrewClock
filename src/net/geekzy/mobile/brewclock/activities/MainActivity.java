@@ -95,6 +95,13 @@ public class MainActivity extends Activity implements OnClickListener, OnItemSel
 		spnTea.setSelection(INITIAL_PROFILE_POS);
 	}
 
+	@Override
+	public void onDestroy()	{
+		super.onDestroy();
+		// close data source
+		teaData.close();
+	}
+
 	/**
 	 * Set an absolute value for the number of minutes to brew.
 	 * has no effect if a brew is currently running.
