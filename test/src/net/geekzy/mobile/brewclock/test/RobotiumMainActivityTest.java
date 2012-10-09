@@ -7,7 +7,6 @@ import net.geekzy.mobile.brewclock.R;
 import net.geekzy.mobile.brewclock.activities.MainActivity;
 import android.database.Cursor;
 import android.test.ActivityInstrumentationTestCase2;
-import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -80,13 +79,9 @@ public class RobotiumMainActivityTest extends ActivityInstrumentationTestCase2<M
 	}
 
 	public void testPickProfile() throws Throwable {
-		solo.pressSpinnerItem(0, 0);
-
 		// scroll to index 2
-		sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
-		sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
-		sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
-		sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+		solo.pressSpinnerItem(0, 2);
+		solo.waitForView(mSpinnerPorfile);
 
 		// check selected time
 		String mTime = mTextViewTime.getText().toString();
@@ -98,7 +93,7 @@ public class RobotiumMainActivityTest extends ActivityInstrumentationTestCase2<M
 		String mStop = (String) mButtonStart.getText();
 		assertEquals(BUTTON_STOP, mStop);
 
-		signal.await(10, TimeUnit.SECONDS); // delay while brewing
+		signal.await(15, TimeUnit.SECONDS); // delay while brewing
 
 		// stop brew
 		solo.clickOnButton(BUTTON_STOP);
